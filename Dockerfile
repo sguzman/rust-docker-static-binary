@@ -9,5 +9,5 @@ ADD src src
 RUN cargo build --package rust-docker-static-binary --bin main --verbose --jobs 4 --release --target=x86_64-unknown-linux-musl --color always
 
 FROM scratch
-COPY --from=base ./target/x86_64-unknown-linux-musl/release/main /main
+COPY --from=base /root/app/target/x86_64-unknown-linux-musl/release/main /main
 ENTRYPOINT ["/main"]
